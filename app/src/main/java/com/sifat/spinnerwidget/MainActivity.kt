@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, "You selected: $selectedItem", Toast.LENGTH_SHORT).show()
                 }
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Do nothing
             }
