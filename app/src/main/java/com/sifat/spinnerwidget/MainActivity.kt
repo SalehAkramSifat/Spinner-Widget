@@ -16,20 +16,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val listOfLanguages = listOf("Bangla", "English", "Hindi", "Arabic", "Spanish")
+        val languages = listOf("Select your language", "Bangla", "English", "Hindi", "Arabic", "Spanish")
 
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listOfLanguages)
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages)
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinner.adapter = arrayAdapter
 
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val selectedItem = parent?.getItemAtPosition(position).toString()
-                Toast.makeText(this@MainActivity, "You have selected the $selectedItem language", Toast.LENGTH_SHORT).show()
+                if (position > 0) {
+                    val selectedItem = parent?.getItemAtPosition(position).toString()
+                    Toast.makeText(this@MainActivity, "You selected: $selectedItem", Toast.LENGTH_SHORT).show()
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-
+                // Do nothing
             }
         }
     }
