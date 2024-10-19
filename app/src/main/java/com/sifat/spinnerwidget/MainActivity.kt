@@ -26,11 +26,11 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (position > 0) {
                     val selectedItem = parent?.getItemAtPosition(position).toString()
-                    Toast.makeText(this@MainActivity, "You selected: $selectedItem", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "You Language is : $selectedItem", Toast.LENGTH_SHORT).show()
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Do nothing
+
             }
         }
     }
